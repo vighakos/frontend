@@ -1,0 +1,12 @@
+body{
+    background-color: silver;
+}
+.slidecontainer {
+    width: 250px;
+}
+
+#szin {
+    width: 250px;
+    height: 250px;
+    border: 1px solid black;
+}
