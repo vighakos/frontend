@@ -24,7 +24,7 @@
                     <p>Érkezés dátuma:</p>
                 </td>
                 <td>
-                    <input type="date" id="erkez">
+                    <input type="date" id="erkez" value="2022-09-12">
                 </td>
             </tr>
             <tr>
@@ -32,7 +32,7 @@
                     <p>Távozás dátuma:</p>
                 </td>
                 <td>
-                    <input type="date" id="tavoz">
+                    <input type="date" id="tavoz" value="2022-09-12">
                 </td>
             </tr>
 
@@ -41,10 +41,10 @@
                     <p>Szoba típusa:</p>
                 </td>
                 <td>
-                    <input type="radio" name="szobatipus" value="1" checked> Egyágyas - 9.000 Ft/éj <br>
-                    <input type="radio" name="szobatipus" value="2"> Kétágyas - 15.000 Ft/éj <br>
-                    <input type="radio" name="szobatipus" value="3"> Kétágyas 1 pótággyal - 18.000 Ft/éj <br>
-                    <input type="radio" name="szobatipus" value="4"> Kétágyas 2 pótággyal - 21.000 Ft/éj
+                    <input type="radio" name="szobatipus" value="egy_agy" checked> Egyágyas - 9.000 Ft/éj <br>
+                    <input type="radio" name="szobatipus" value="ket_agy"> Kétágyas - 15.000 Ft/éj <br>
+                    <input type="radio" name="szobatipus" value="ket_1pot"> Kétágyas 1 pótággyal - 18.000 Ft/éj <br>
+                    <input type="radio" name="szobatipus" value="ket_2pot"> Kétágyas 2 pótággyal - 21.000 Ft/éj
                 </td>
             </tr>
 
@@ -58,12 +58,18 @@
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                    </select> fő <br>
-                    
-                    <input type="number" name="vendeg_eletkor" min="0" max="100" id="v_1" class="vendeg_eletkor"> év
-                    <input type="number" name="vendeg_eletkor" min="0" max="100" id="v_2" class="vendeg_eletkor"> év
-                    <input type="number" name="vendeg_eletkor" min="0" max="100" id="v_3" class="vendeg_eletkor"> év
-                    <input type="number" name="vendeg_eletkor" min="0" max="100" id="v_4" class="vendeg_eletkor"> év
+                    </select> fő
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Vendégek életkora:</p>
+                </td>
+                <td>
+                    <input type="number" name="vendeg_eletkor" min="0" max="120" id="v_1" value="0"> év
+                    <input type="number" name="vendeg_eletkor" min="0" max="120" id="v_2" value="0"> év
+                    <input type="number" name="vendeg_eletkor" min="0" max="120" id="v_3" value="0"> év
+                    <input type="number" name="vendeg_eletkor" min="0" max="120" id="v_4" value="0"> év
                 </td>
             </tr>
 
@@ -72,21 +78,21 @@
                     <p>Ellátás:</p>
                 </td>
                 <td>
-                    <input type="radio" name="ellatas" value="1" checked> Reggeli - 900 Ft/nap/fő <br>
-                    <input type="radio" name="ellatas" value="2"> Félpanzió - 2.900 Ft/nap/fő <br>
-                    <input type="radio" name="ellatas" value="3"> Teljes panzió - 4.900 Ft/nap/fő
+                    <input type="radio" name="ellatas" value="reggeli" checked> Reggeli - 900 Ft/nap/fő <br>
+                    <input type="radio" name="ellatas" value="fel"> Félpanzió - 2.900 Ft/nap/fő <br>
+                    <input type="radio" name="ellatas" value="teljes"> Teljes panzió - 4.900 Ft/nap/fő
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    <p>Szoba típusa:</p>
+                    <p>Fürdő hozzáférés:</p>
                 </td>
                 <td>
-                    <input type="checkbox" name="furdo" value="1"> Beltéri medencék - 800 Ft/nap/fő <br>
-                    <input type="checkbox" name="furdo" value="2"> Kültéri medencék - 800 Ft/nap/fő <br>
-                    <input type="checkbox" name="furdo" value="3"> Szauna belépő - 800 Ft/nap/fő <br>
-                    <input type="checkbox" name="furdo" value="4"> Teljes belépő - 2.000 Ft/nap/fő
+                    <input type="checkbox" name="furdo" value="belteri" id="belteri"> Beltéri medencék - 800 Ft/nap/fő <br>
+                    <input type="checkbox" name="furdo" value="kulteri" id="kulteri"> Kültéri medencék - 800 Ft/nap/fő <br>
+                    <input type="checkbox" name="furdo" value="szauna" id="szauna"> Szauna belépő - 800 Ft/nap/fő <br>
+                    <input type="checkbox" name="furdo" value="teljes" id="teljes"> Teljes belépő - 2.000 Ft/nap/fő
                 </td>
             </tr>
 

@@ -21,6 +21,6 @@ td {
     margin: auto;
 }
 
-.vendeg_eletkor {
+[id^="v_"] {
     width: 75px;
 }
