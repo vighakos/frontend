@@ -1,0 +1,26 @@
+body{
+    background-color: silver;
+}
+
+table {
+    margin: auto auto;
+}
+
+h1 {
+    width: 50%;
+    margin: auto;
+}
+
+table, tr, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 1rem;
+    margin: auto;
+}
+
+.vendeg_eletkor {
+    width: 75px;
+}

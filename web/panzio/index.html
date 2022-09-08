@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/bootstrap.min.js" defer></script>
+    <script src="js/app.js" defer></script>
+
+    <title>Panzió</title>
+</head>
+<body>
+    <h1>Panzió - szobafoglalás</h1>
+    <form action="#">
+        <table>
+            <tr>
+                <td>
+                    <p>Érkezés dátuma:</p>
+                </td>
+                <td>
+                    <input type="date" id="erkez">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Távozás dátuma:</p>
+                </td>
+                <td>
+                    <input type="date" id="tavoz">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>Szoba típusa:</p>
+                </td>
+                <td>
+                    <input type="radio" name="szobatipus" value="1" checked> Egyágyas - 9.000 Ft/éj <br>
+                    <input type="radio" name="szobatipus" value="2"> Kétágyas - 15.000 Ft/éj <br>
+                    <input type="radio" name="szobatipus" value="3"> Kétágyas 1 pótággyal - 18.000 Ft/éj <br>
+                    <input type="radio" name="szobatipus" value="4"> Kétágyas 2 pótággyal - 21.000 Ft/éj
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>Vendégek száma:</p>
+                </td>
+                <td>
+                    <select name="vendegszam" id="vendegszam">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select> fő <br>
+                    
+                    <input type="number" name="vendeg_eletkor" min="0" max="100" id="v_1" class="vendeg_eletkor"> év
+                    <input type="number" name="vendeg_eletkor" min="0" max="100" id="v_2" class="vendeg_eletkor"> év
+                    <input type="number" name="vendeg_eletkor" min="0" max="100" id="v_3" class="vendeg_eletkor"> év
+                    <input type="number" name="vendeg_eletkor" min="0" max="100" id="v_4" class="vendeg_eletkor"> év
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>Ellátás:</p>
+                </td>
+                <td>
+                    <input type="radio" name="ellatas" value="1" checked> Reggeli - 900 Ft/nap/fő <br>
+                    <input type="radio" name="ellatas" value="2"> Félpanzió - 2.900 Ft/nap/fő <br>
+                    <input type="radio" name="ellatas" value="3"> Teljes panzió - 4.900 Ft/nap/fő
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>Szoba típusa:</p>
+                </td>
+                <td>
+                    <input type="checkbox" name="furdo" value="1"> Beltéri medencék - 800 Ft/nap/fő <br>
+                    <input type="checkbox" name="furdo" value="2"> Kültéri medencék - 800 Ft/nap/fő <br>
+                    <input type="checkbox" name="furdo" value="3"> Szauna belépő - 800 Ft/nap/fő <br>
+                    <input type="checkbox" name="furdo" value="4"> Teljes belépő - 2.000 Ft/nap/fő
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>Egyéb kérdés, kívánság:</p>
+                </td>
+                <td>
+                    <textarea name="egyeb" cols="20" rows="5"></textarea>
+                </td>
+            </tr>
+        </table>
+
+        <input type="submit" id="felveszBtn" value="Költségkalkuláció">
+    </form>
+</body>
+</html>
