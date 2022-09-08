@@ -6772,7 +6772,6 @@
         }
       });
     }
-
   }
 
   enableDismissTrigger(Toast);
