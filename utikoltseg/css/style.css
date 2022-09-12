@@ -1,0 +1,16 @@
+body{
+    background-color: silver;
+    padding: 5px;
+}
+
+h1, h2, h3 {
+    font-weight: bold;
+}
+
+td {
+    width: 250px;
+}
+
+table {
+    margin-bottom: 20px;
+}

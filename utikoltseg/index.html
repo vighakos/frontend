@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/bootstrap.min.js" defer></script>
+    <script src="js/app.js" defer></script>
+
+    <title>Útiköltség</title>
+</head>
+<body>
+    <h1>Útiköltség-elszámolás</h1>
+    
+    <form action="#">
+        <h3>Személyes adatok</h3>
+        <table>
+            <tr>
+                <td>Név:</td>
+                <td>
+                    <input type="text" name="szemelyes" id="nev">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Lakcím:</td>
+                <td>
+                    <input type="text" name="szemelyes" id="lakcim">
+                </td>
+            </tr>
+            <tr>
+                <td>Születési dátum:</td>
+                <td>
+                    <input type="date" name="szemelyes" id="szul">
+                </td>
+            </tr>
+        </table>
+        
+        <h3>Gépjármű- és üzemanyagadatok</h3>
+        <table>
+            <tr>
+                <td>Gépjármű gyártmánya, típusa:</td>
+                <td>
+                    <input type="text" name="auto" id="tipus">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Üzemanyag fajtája:</td>
+                <td>
+                    <select name="auto" id="uzemanyag">
+                        <option value="benzin" selected>Benzin</option>
+                        <option value="diesel">Diesel</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Fogyasztási norma:</td>
+                <td>
+                    <select name="auto" id="fogyasztas">
+                        <option value="1" selected>1000 cm3-ig 7,6 l/100km</option>
+                        <option value="2">1001-1500 cm3 között 8,6 l/100km</option>
+                        <option value="3">1501-2000 cm3 között 9,5 l/100km</option>
+                        <option value="4">2001-3000 cm3 között 11,4 l/100km</option>
+                        <option value="5">3001 cm3 fölött 13,3 l/100km </option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Utazás dátuma:</td>
+                <td>
+                    <input type="date" name="auto" id="datum">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Üzemanyag egységára:</td>
+                <td>
+                    <input type="number" name="auto" id="ar" min="0" value="0" id="egysegar">
+                </td>
+            </tr>
+        </table>
+
+        <h3>A megtett út adatai</h3>
+        <table>
+            <tr>
+                <td>Kiindulási hely:</td>
+                <td>
+                    <input type="text" name="utadat" id="indul">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Úticél</td>
+                <td>
+                    <input type="text" name="utadat" id="cel">
+                </td>
+            </tr>
+
+            <tr>
+                <td>További úticél:</td>
+                <td>
+                    <input type="text" name="utadat" id="tovabbicel">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Távolság:</td>
+                <td>
+                    <input type="number" name="utadat" id="tavolsag" min="0" value="0">km
+                </td>
+            </tr>
+        </table>
+
+        <input type="submit" value="Ellenőrzés és számítás">
+    </form>
+    <hr>
+    <table>
+        <tr>
+            <td>Útiköltség:</td>
+            <td>
+                <p id="utikoltseg">0Ft</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Amortizáció:</td>
+            <td>
+                <p id="amor">0Ft</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Összes elszámolható költség:</td>
+            <td>
+                <p id="osszeskoltseg">0Ft</p>
+            </td>
+        </tr>
+    </table>
+    <input type="button" value="Nyomtatás">
+</body>
+</html>
