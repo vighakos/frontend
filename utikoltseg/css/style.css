@@ -9,8 +9,17 @@ h1, h2, h3 {
 
 td {
     width: 250px;
+    padding: 2px;
 }
 
 table {
     margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
 }

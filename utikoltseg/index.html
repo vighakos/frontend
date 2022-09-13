@@ -65,11 +65,11 @@
                 <td>Fogyasztási norma:</td>
                 <td>
                     <select name="auto" id="fogyasztas">
-                        <option value="1" selected>1000 cm3-ig 7,6 l/100km</option>
-                        <option value="2">1001-1500 cm3 között 8,6 l/100km</option>
-                        <option value="3">1501-2000 cm3 között 9,5 l/100km</option>
-                        <option value="4">2001-3000 cm3 között 11,4 l/100km</option>
-                        <option value="5">3001 cm3 fölött 13,3 l/100km </option>
+                        <option value="7.6" selected>1000 cm3-ig 7,6 l/100km</option>
+                        <option value="8.6">1001-1500 cm3 között 8,6 l/100km</option>
+                        <option value="9.5">1501-2000 cm3 között 9,5 l/100km</option>
+                        <option value="11.4">2001-3000 cm3 között 11,4 l/100km</option>
+                        <option value="13.3">3001 cm3 fölött 13,3 l/100km </option>
                     </select>
                 </td>
             </tr>
@@ -85,6 +85,7 @@
                 <td>Üzemanyag egységára:</td>
                 <td>
                     <input type="number" name="auto" id="ar" min="0" value="0" id="egysegar">
+                    <p><a href="https://nav.gov.hu/ugyfeliranytu/uzemanyag/">NAV oldala</a></p>
                 </td>
             </tr>
         </table>
@@ -120,7 +121,7 @@
             </tr>
         </table>
 
-        <input type="submit" value="Ellenőrzés és számítás">
+        <input type="submit" value="Ellenőrzés és számítás" id="submit">
     </form>
     <hr>
     <table>
