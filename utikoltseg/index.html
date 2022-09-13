@@ -85,7 +85,7 @@
                 <td>Üzemanyag egységára:</td>
                 <td>
                     <input type="number" name="auto" id="ar" min="0" value="0" id="egysegar">
-                    <p><a href="https://nav.gov.hu/ugyfeliranytu/uzemanyag/">NAV oldala</a></p>
+                    <p id="link"><a href="https://nav.gov.hu/ugyfeliranytu/uzemanyag/" target="_blank">NAV oldala</a></p>
                 </td>
             </tr>
         </table>
@@ -120,9 +120,9 @@
                 </td>
             </tr>
         </table>
-
-        <input type="submit" value="Ellenőrzés és számítás" id="submit">
     </form>
+    <input type="button" value="Ellenőrzés és számítás" id="submit">
+
     <hr>
     <table>
         <tr>
@@ -146,6 +146,13 @@
             </td>
         </tr>
     </table>
-    <input type="button" value="Nyomtatás">
+    <input type="button" value="Nyomtatás" id="nyomi" disabled>
+
+    <p class="nyomtatni">Aláírásommal igazolom, hogy az adatok a valóságnak megfelelnek.</p><br>
+    <p class="nyomtatni">.................................. 2148. február 30.</p><br>
+    
+    <div id="wrapper" class="nyomtatni">
+        <div class="nyomtatni"><p>Aláírás: ..................................</p></div>
+    </div>
 </body>
 </html>

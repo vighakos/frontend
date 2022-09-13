@@ -1,6 +1,6 @@
 body{
     background-color: silver;
-    padding: 5px;
+    padding: 15px;
 }
 
 h1, h2, h3 {
@@ -22,4 +22,27 @@ a {
 
 a:hover {
     color: red;
+}
+
+@media print 
+{    
+	input[type=button] {
+	        display :  none ;
+	}
+
+    p#link {
+        display: none;
+    }
+
+    #wrapper {
+        display: flex;
+        justify-content: right;
+    }
+}
+
+@media screen 
+{ 
+    p.nyomtatni, #wrapper {
+	    display :  none ;
+	}
 }
