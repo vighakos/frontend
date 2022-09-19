@@ -1,0 +1,98 @@
+body {
+    background-color: silver;
+    box-sizing: border-box;
+}
+
+.empty {
+    background-color: black;
+}
+
+.wall {
+    background-color: blue;
+}
+
+.door {
+    background-color: gray;
+}
+
+.food {
+    background-color: black;
+    background-image: url('food.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.bigfood {
+    background-color: black;
+    background-image: url('bigfood.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.pacman {
+    background-color: black;
+    background-image: url('pacman.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.ghost1 {
+    background-color: black;
+    background-image: url('ghost1.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.ghost2 {
+    background-color: black;
+    background-image: url('ghost2.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.ghost3 {
+    background-color: black;
+    background-image: url('ghost3.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.ghost4 {
+    background-color: black;
+    background-image: url('ghost4.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.ghost5 {
+    background-color: black;
+    background-image: url('ghost5.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.right {
+    transform: rotate(90deg);
+}
+
+.up {
+    transform: rotate(0deg);
+}
+
+.left {
+    transform: rotate(-90deg);
+}
+
+.down {
+    transform: rotate(180deg);
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px solid black;
+}
+
+td {
+    width: 30px;
+    height: 30px;
+}
