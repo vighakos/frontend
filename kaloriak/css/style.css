@@ -1,0 +1,21 @@
+body {
+    padding: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+    border: 1px solid blueviolet;
+    border-radius: 5px;
+}
+
+td {
+    background-color: cornflowerblue;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+thead > tr > td, tfoot > tr > td {
+    background-color: darkslateblue;
+    color: aliceblue;
+    font-weight: bold;
+}
