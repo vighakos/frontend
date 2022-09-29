@@ -9,7 +9,24 @@ console.clear()
 _1()
 _2()
 _3()
+_4()
+_5()
 
+function _4() {
+    let avgDist = 0
+    let maxind = 0
+    for(i = 0; i < 20; i++){
+        avgDist += pontok[i].DistanceFromOrigo
+        if (pontok[maxind].DistanceFromOrigo > pontok[i].DistanceFromOrigo) {
+            maxind = i
+        }
+    }
+
+    avgDist = pontok[i].DistanceFromOrigo / 20
+
+    console.log(pontok[maxind].DistanceFromOrigo);
+    console.log(`svbhnjmkl.é`, avgDist);
+}
 
 function _3() {
     let db = 0
