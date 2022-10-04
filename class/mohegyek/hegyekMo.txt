@@ -1,5 +1,4 @@
-﻿Hegycsúcs neve;Hegység;Magasság
-Ágasvár;Mátra;789
+﻿Ágasvár;Mátra;789
 Bálvány;Bükk-vidék;956
 Büszkés-hegy;Bükk-vidék;952
 Cserepes-kő;Bükk-vidék;823

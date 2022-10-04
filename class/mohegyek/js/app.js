@@ -1,4 +1,35 @@
-let hegyek = []
+let hegyek = [],
+    submitBtn = document.querySelector('#submitbtn'),
+    form = document.querySelector('form'),
+    table = document.querySelector('#mytable'),
+    tbody = document.querySelector('#tablebody'),
+    hnev = form.hnev,
+    hegysnev = form.hegysnev,
+    magassag = form.magassag
+
+load()
+
+submitBtn.addEventListener('click', () => {
+    if (hnev.value == "" || hegysnev.value == "" || magassag.value == 0) {
+        alert('Adj meg minden adatot')
+    } else {
+        let tr = document.createElement('tr')
+
+        let td1 = document.createElement('td')
+        td1.innerText = hnev.value
+        tr.appendChild(td1)
+
+        let td2 = document.createElement('td')
+        td2.innerText = hegysnev.value 
+        tr.appendChild(td2)
+
+        let td3 = document.createElement('td')
+        td3.innerText = magassag.value
+        tr.appendChild(td3)
+
+        table.appendChild(tr)
+    }
+})
 
 async function getFile() {
     return await fetch('hegyekMo.txt')
@@ -21,8 +52,6 @@ async function load() {
         hegyek.push(new Hegy(object))
     })
 
-    let table = document.querySelector('#mytable')
-
     hegyek.forEach(hegy => {
         let tr = document.createElement('tr')
 
@@ -38,8 +67,6 @@ async function load() {
         td3.innerText = hegy.magassag
         tr.appendChild(td3)
 
-        table.appendChild(tr)
+        tbody.appendChild(tr)
     })
 }
-
-load()

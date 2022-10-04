@@ -16,6 +16,36 @@
     <title>Document</title>
 </head>
 <body>
-    <table id="mytable" class="table"></table>
+    <h3>Adat felvétele :)</h3>
+    <form action="" method="post">
+        <div class="form-group">
+            <input type="text" id="hnev" placeholder="Hegy neve">
+        </div>
+        <br>
+
+        <div class="form-group">
+            <input type="text" id="hegysnev" placeholder="Hegység neve">
+        </div>
+        <br>
+
+        <div class="form-group">
+            <input type="number" id="magassag" min="0" placeholder="Magasság">
+        </div>
+        <br>
+
+        <input type="button" id="submitbtn" value="Felvétel">
+    </form>
+    <hr>
+    <h3>Táblázat :)</h3>
+    <table id="mytable" class="table table-dark">
+        <thead>
+            <tr>
+                <td>Hegy</td>
+                <td>Hegység</td>
+                <td>Magasság</td>
+            </tr>
+        </thead>
+        <tbody id="tablebody"></tbody>
+    </table>
 </body>
 </html>

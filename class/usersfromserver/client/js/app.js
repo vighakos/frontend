@@ -10,11 +10,15 @@ async function getUsers() {
 }
 
 async function renderUsers() {
-    let users = getUsers()
+    let users = await getUsers()
     let container = document.querySelector('#container')
 
     users.forEach(user => {
-        container.innerHTML += `<div class="user">`
+        container.innerHTML += `<div class="user">email: ${user.email}
+        firstName: ${user.firstname}
+        lastName: ${user.lastname}
+        gender: ${user.gender}
+        username: ${user.username} </div>`
     });
 }
 
