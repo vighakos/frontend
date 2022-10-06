@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="peldaApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/bootstrap.min.js" defer></script>
+    <script src="js/angular.min.js" defer></script>
+    <script src="js/app.js" defer></script>
+
+    <title>AngularJS</title>
+</head>
+<body>
+    <div class="container" ng-controller="mainCtrl">
+        <header>
+            <h3>{{ title }}</h3>
+        </header>
+        <nav>
+            <nav class="navbar navbar-expand-lg bg-light">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#">Menü</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                      <li class="nav-item" ng-repeat="link in links">
+                        <a class="nav-link active" aria-current="page" href="#"> {{link.name}} </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+        </nav>
+        <main>
+            <h5>Laptopok</h5>
+            <table class="table table-striped table-sm table-hover">
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Gyártó</td>
+                        <td>Típus</td>
+                        <td>Leírás</td>
+                        <td class="text-end">Ár ({{currency}})</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="laptop in laptops">
+                       <td> {{laptop.ID}} </td> 
+                       <td> {{laptop.brand}} </td> 
+                       <td> {{laptop.type}} </td> 
+                       <td> {{laptop.description}} </td> 
+                       <td class="text-end"> {{laptop.price}} {{currency}}</td> 
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td class="text-center" colspan="5">Összesen: <strong>{{laptops.length}}</strong> laptop</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </main>
+        <footer class="text-center">
+            {{company}} - {{author}}
+        </footer>
+    </div>
+</body>
+</html>
