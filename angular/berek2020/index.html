@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="berekApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/bootstrap.min.js" defer></script>
+    <script src="js/angular.min.js" defer></script>
+    <script src="js/app.js" defer></script>
+
+    <title>Bérek AngularJS-el</title>
+</head>
+<body>
+    <div class="container" ng-controller="mainCtrl">
+        <h1>{{title}}</h1>
+        <table class="table table-striped table-sm table-hover">
+            <thead>
+                <tr>
+                    <td>Név</td>
+                    <td>Nem</td>
+                    <td>Részleg</td>
+                    <td>Belépés</td>
+                    <td>Bér</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="ber in berek">
+                    <td>{{ber.nev}}</td>
+                    <td>{{ber.nem}}</td>
+                    <td>{{ber.reszleg}}</td>
+                    <td>{{ber.belepes}}</td>
+                    <td>{{ber.ber}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="text-center" colspan="5">Összesen: <strong>{{berek.length}}</strong> adat</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+</html>

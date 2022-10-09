@@ -55,6 +55,4 @@ let app = new angular.module('peldaApp', [])
             "price": 195000
         }
     ]
-
-
 })
