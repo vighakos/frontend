@@ -1,4 +1,5 @@
 let adatok = []
+load()
 
 let app = new angular.module('berekApp', [])
 
@@ -25,7 +26,5 @@ async function load() {
 async function getFile() {
     return await fetch('berek2020.txt')
     .then(res => res.text())
-        .then(res => res.split('\n'))
+    .then(res => res.split('\n'))
 }
-
-load()
