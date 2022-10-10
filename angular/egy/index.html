@@ -39,6 +39,12 @@
         </nav>
         <main>
             <h5>Laptopok</h5>
+
+            <div class="input-group flex-nowrap pb-2">
+                <span class="input-group-text" id="addon-wrapping">🔍</span>
+                <input type="text" class="form-control" placeholder="Keresés :)" ng-model="searchfield">
+            </div>
+
             <table class="table table-striped table-sm table-hover">
                 <thead>
                     <tr>
@@ -50,7 +56,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="laptop in laptops">
+                    <tr ng-repeat="laptop in filtered = (laptops | filter:searchfield)">
                        <td> {{laptop.ID}} </td> 
                        <td> {{laptop.brand}} </td> 
                        <td> {{laptop.type}} </td> 
@@ -60,7 +66,7 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td class="text-center" colspan="5">Összesen: <strong>{{laptops.length}}</strong> laptop</td>
+                        <td class="text-center" colspan="5">Összesen: <strong>{{filtered.length}}</strong> laptop</td>
                     </tr>
                 </tfoot>
             </table>

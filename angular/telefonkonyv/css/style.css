@@ -1,0 +1,19 @@
+body{
+    background-color: silver;
+}
+
+.container {
+    background-color: azure;
+    box-shadow: 0 0 10px gray;
+}
+
+header {
+    padding: 20px;
+    text-align: center;
+}
+
+footer {
+    padding: 10px;
+    text-align: center;
+    font-size: 80%;
+}
