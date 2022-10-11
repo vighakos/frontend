@@ -1,9 +1,9 @@
-body{
+body {
     background-color: silver;
 }
 
 .container {
-    background-color: azure;
+    background-color: white;
     box-shadow: 0 0 10px gray;
 }
 

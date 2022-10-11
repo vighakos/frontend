@@ -1,0 +1,28 @@
+body{
+    background-color: silver;
+    padding: 10px;
+}
+
+header {
+    background-color: black;
+    color:rgb(222, 230, 238);
+    text-align: center;
+    line-height: 50px;
+    height: 50px;
+    padding-top: 10px;
+}
+
+main {
+    background-color: azure;
+    padding: 15px;
+}
+
+footer {
+    text-align: center;
+    font-size: 80%;
+    letter-spacing: 3px;
+    background-color: black;
+    color: whitesmoke;
+    line-height: 50px;
+    height: 50px;
+}
