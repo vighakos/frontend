@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="hu" ng-app="weatherforecast">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script src="js/bootstrap.min.js" defer></script>
+    <script src="js/angular.min.js" defer></script>
+    <script src="js/moment.js" defer></script>
+    <script src="js/weather.js" defer></script>
+
+    <title>Időjárás előrejelzés</title>
+
+</head>
+<body>
+    <div class="container" ng-controller="mainCtrl">
+        <header> {{title}} </header>
+        <main>
+            <section>
+                <h3>Előrejelzés megadása</h3>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" ng-show="message!=null">
+                    {{message}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+                <form >
+                    <div class="mb-1">
+                    <label for="datum" class="form-label">Dátum:</label>
+                    <input type="date" class="form-control" id="datum" min="{{today}}" ng-model="forecast.datum">
+                    
+                    </div>
+                    <div class="mb-1">
+                    <label for="min" class="form-label">Minimum hőmérséklet(°C):</label>
+                    <input type="number" class="form-control" id="min" ng-model="forecast.min">
+                    </div>
+                    <div class="mb-1">
+                        <label for="max" class="form-label">Maximum hőmérséklet(°C):</label>
+                        <input type="number" class="form-control" id="max" ng-model="forecast.max">
+                    </div>
+                    <div class="mb-1">
+                        <label for="idojaras" class="form-label">Időjárás</label>
+                        <select id="idojaras" class="form-select" ng-model="forecast.idojaras">
+                            <option value="">Válasszon...</option>
+                            <option value="{{idojaras}}" ng-repeat="idojaras in idojarasok">{{idojaras}}</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary mt-1 mb-1" ng-click="hozzaadas()">Hozzáadás</button>
+                </form>
+            </section> <hr>
+
+            <section>
+                <h3>Megadott előrejelzés</h3>
+
+                <div class="input-group flex-nowrap pb-2">
+                    <span class="ipnput-group-text" id="addon-wrapping">
+                        <i class="bi bi-search"></i>
+                    </span>
+                    <input type="text" class="form-control" placeholder="Keresés..." ng-model="searchField">
+                </div>
+                <p ng-if="adatok.length==0" class="text-muted">Jelenleg még nincs bejegyzés</p>
+
+                <div ng-repeat="idojaras in idojarasok" ng-if="adatok.length > 0">
+                    <h6>{{kategoria}}</h6>
+                    <ul>
+                        <li ng-repeat="idojaras in filtered=( adatok | filter:searchField)" ng-if="adat.kategoria == $parent.kategoria">{{adat.datum}} - <span>{{adat.min}}</span><i class="bi bi-pencil" ng-click="kivalasztas(adat.ID)"></i><i class="bi bi-trash-fill" ng-click="torles(adat.ID)"></i></li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+        <footer> 
+            {{company}} - {{author}} 
+        </footer>
+    </div>
+</body>
+</html>

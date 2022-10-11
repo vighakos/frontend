@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="shoppinglist">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/bootstrap.min.js" defer></script>
+    <script src="js/angular.min.js" defer></script>
+    <script src="js/app.js" defer></script>
+
+    <title>Bevásárlólista</title>
+</head>
+<body>
+    <div class="container" ng-controller="mainCtrl">
+        <header>
+            <h3>{{title}} </h3>
+        </header>
+        <main>
+            <section>
+                <h5><strong>Új bejegyzés</strong></h5><hr>
+
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" ng-show="message != null">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+                <form>
+                    <div class="mb-1">
+                        <label for="termek" class="form-label">Termék</label>
+                        <input type="text" class="form-control" id="termek" ng-model="ujadat.termek">
+                    </div>
+                    <div class="mb-1">
+                        <label for="mennyiseg" class="form-label">Mennyiség</label>
+                        <input type="number" min="0" class="form-control" id="mennyiseg" ng-model="ujadat.mennyiseg">
+                    </div>
+                    <div class="mb-1">
+                        <label for="egysegar" class="form-label">Egységár</label>
+                        <input type="number" min="0" class="form-control" id="egysegar" ng-model="ujadat.egysegar">
+                    </div>
+
+                    <button type="button" class="btn btn-primary mt-1 mb-1" ng-click="hozzaadas()">Hozzáadás</button>
+                </form>
+            </section>
+            <hr>
+            <section>
+                <h5>Bevásárlólista bejegyzések</h5>
+
+                <div class="input-group flex-nowrap pb-2">
+                    <span class="input-group-text" id="addon-wrapping">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg>
+                    </span>
+                    <input type="text" class="form-control" placeholder="Keresés..." ng-model="searchField">
+                </div>
+
+                <p ng-if="adatok.length == 0">Jelenleg még nincs bejegyzés a bevásárlólistában!</p>
+
+                <table class="table table-striped" ng-if="adatok.length > 0">
+                    <thead>
+                        <tr>
+                            <td></td>
+                            <td>Termék</td>
+                            <td>Mennyiség</td>
+                            <td>Egységár</td>
+                            <td>Össz. ár</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in filtered = ( adatok | filter:searchField)">
+                            <td>
+                                <a ng-click="torles()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                    </svg>
+                                </a>
+                            </td>
+                            <td>{{item.termek}}</td>
+                            <td>{{item.mennyiseg}} db</td>
+                            <td>{{item.egysegar}} {{currency}}</td>
+                            <td>{{item.mennyiseg * item.egysegar}} {{currency}}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5" class="text-center">Összesen: {{osszegez()}} Ft</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
+        </main>
+        <footer>
+            {{company}} - {{author}}
+        </footer>
+    </div>
+</body>
+</html>
