@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="hu" ng-app="peldaApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    
+    <script src="js/bootstrap.min.js" defer></script>
+    <script src="js/angular.min.js" defer></script>
+    <script src="js/angular.animate.min.js" defer></script>
+    <script src="js/app.js" defer></script>
+
+    <title>AngularJS ngClass példa</title>
+</head>
+
+<body>
+    <div class="container" ng-controller="mainCtrl">
+
+        <h2>AngularJS ngClass példa</h2>
+        <hr>
+
+        <div class="accordion mb-3" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Új adat felvétele
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <section>
+                        <h3>Add record idk</h3>
+                        <hr>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert" ng-show="message != null">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+            
+                        <form>
+                            <div class="mb-1">
+                                <label for="nev" class="form-label">Név</label>
+                                <input type="text" class="form-control" id="nev" ng-model="ujadat.nev">
+                            </div>
+                            <div class="mb-1">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" ng-model="ujadat.email">
+                            </div>
+                            <div class="mb-1">
+                                <label for="kor" class="form-label">Kor</label>
+                                <input type="number" class="form-control" id="kor" min="0" ng-model="ujadat.kor">
+                            </div>
+                            <div class="mb-1">
+                                <label for="foglalkozas" class="form-label">Foglalkozás</label>
+                                <input type="text" class="form-control" id="foglalkozas" ng-model="ujadat.foglalkozas">
+                            </div>
+            
+                            <button type="button" class="btn btn-primary mt-1 mb-1" ng-click="hozzaadas()">Hozzáadás</button>
+                        </form>
+                    </section>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Adatok
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <section>
+
+                        <div class="input-group flex-nowrap pb-2">
+                            <span class="input-group-text" id="addon-wrapping">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                </svg>
+                            </span>
+                            <input type="text" class="form-control" placeholder="Keresés..." ng-model="searchField">
+                        </div>
+
+                        <div class="row">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" ng-model="hideInactive" ng-checked="hideInactive">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Csak az aktív felhasználók mutatása
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <table class="table table-hover table-striped table-sm">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Név</th>
+                                    <th>E-mail cím</th>
+                                    <th>Kor</th>
+                                    <th>Foglalkozás</th>
+                                    <th>Státusz</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in filtered = (adatok | filter:searchField)" ng-class="{inactive: item.statusz==false}" ng-hide="item.statusz == false && hideInactive">
+                                    <td>{{ $index+1 }}.</td>
+                                    <td>{{ item.nev }}</td>
+                                    <td>{{ item.email }}</td>
+                                    <td>{{ item.kor }}</td>
+                                    <td>{{ item.foglalkozas }}</td>
+                                    <td>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" ng-model="item.statusz" ng-checked="item.statusz==true" ng-change="statusChange()">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="6">Összesen: {{ adatok.length }} db</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </section>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</body>
+
+</html>
