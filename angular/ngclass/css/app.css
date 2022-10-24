@@ -49,3 +49,7 @@ ul li span i {
     color: silver !important;
     text-decoration: line-through !important;
 }
+
+a {
+    cursor: pointer;
+}

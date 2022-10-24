@@ -8,9 +8,10 @@ app.run(["$locale", function($locale) {
 app.controller('mainCtrl', function($scope) {
     $scope.hideInactive = false
     $scope.ujadat = {}
+    $scope.modosit = false
 
     $scope.adatok = angular.fromJson(window.localStorage.getItem('adatok'));
-    if ($scope.adatok == null) {
+    if ($scope.adatok == null || $scope.adatok.length == 0) {
         $scope.adatok = [{
                 ID: 1,
                 nev: "Kovács Béla",
@@ -66,5 +67,33 @@ app.controller('mainCtrl', function($scope) {
 
     $scope.statusChange = function() {
         window.localStorage.setItem('adatok', angular.toJson($scope.adatok));
+    }
+
+    $scope.torles = function(ID) {
+        let idx = $scope.adatok.findIndex(item => item.ID == ID);
+        $scope.adatok.splice(idx, 1);
+        window.localStorage.setItem('adatok', angular.toJson($scope.adatok))
+    }
+
+    $scope.kivalasztoka = function(ID) {
+        $scope.modosit = true
+        let idx = $scope.adatok.findIndex(item => item.ID == ID);
+        $scope.ujadat.ID = $scope.adatok[idx].ID
+        $scope.ujadat.nev = $scope.adatok[idx].nev
+        $scope.ujadat.email = $scope.adatok[idx].email
+        $scope.ujadat.kor = $scope.adatok[idx].kor
+        $scope.ujadat.foglalkozas = $scope.adatok[idx].foglalkozas
+        $scope.ujadat.statusz = true
+    }
+
+    $scope.modositoka = function() {
+        $scope.modosit = false
+        let idx = $scope.adatok.findIndex(item => item.ID == $scope.ujadat.ID);
+        $scope.adatok[idx].nev = $scope.ujadat.nev
+        $scope.adatok[idx].email = $scope.ujadat.email
+        $scope.adatok[idx].kor = $scope.ujadat.kor
+        $scope.adatok[idx].foglalkozas = $scope.ujadat.foglalkozas
+        $scope.adatok[idx].statusz = $scope.ujadat.statusz
+        window.localStorage.setItem('adatok', angular.toJson($scope.adatok))
     }
 })

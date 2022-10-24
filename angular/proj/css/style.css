@@ -1,0 +1,29 @@
+body{
+    background-color: silver;
+}
+
+.container {
+    background-color: whitesmoke;
+    padding: 10px;
+    box-shadow: 0 0 10px gray;
+}
+
+header {
+    background-color: slategray;
+    color: white;
+    text-shadow: 0 0 2px black;
+    font-size: 250%;
+    text-align: center;
+}
+
+footer {
+    background-color: black;
+    color: aliceblue;
+    text-align: center;
+    font-size: 80%;
+    letter-spacing: 3px;
+}
+
+section {
+    padding: 10px;
+}
