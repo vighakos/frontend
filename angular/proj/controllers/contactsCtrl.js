@@ -1,3 +1,0 @@
-app.controller('contactsCtrl', function() {
-    
-})

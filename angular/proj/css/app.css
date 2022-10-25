@@ -1,9 +1,9 @@
-body{
+body {
     background-color: silver;
 }
 
 .container {
-    background-color: whitesmoke;
+    background-color: white;
     padding: 10px;
     box-shadow: 0 0 10px gray;
 }
@@ -14,16 +14,37 @@ header {
     text-shadow: 0 0 2px black;
     font-size: 250%;
     text-align: center;
+    padding: 20px;
 }
 
 footer {
     background-color: black;
-    color: aliceblue;
+    color: white;
     text-align: center;
     font-size: 80%;
     letter-spacing: 3px;
+    padding: 10px;
 }
 
 section {
     padding: 10px;
+}
+
+p {
+    text-align: justify;
+}
+
+li {
+    position: relative;
+    width: 100%;
+    border-bottom: 1px dotted gray;
+}
+
+span {
+    position: absolute;
+    right: 0px
+}
+
+.eler {
+    list-style-type: none;
 }

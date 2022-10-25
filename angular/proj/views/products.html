@@ -1,2 +1,28 @@
-<h3>produktsz</h3>
+<h3>Termékek</h3>
 <hr>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <td>Termék</td>
+            <td>Ár ({{currency}}) / Db</td>
+            <td>Db</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in filtered = ( products | filter:searchField)">
+            <td>{{item.name}}</td>
+            <td>{{item.price}} {{currency}}</td>
+            <td><input type="number" min="0"></td>
+            <td><button type="button" class="btn btn-primary">Kosárba</button>            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4" class="text-center">Összesen: {{products.length}} termék</td>
+        </tr>
+    </tfoot>
+    <tfoot>
+
+    </tfoot>
+</table>

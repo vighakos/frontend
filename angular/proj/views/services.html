@@ -1,2 +1,5 @@
-<h3>szervic</h3>
+<h3>Szolgáltatások</h3>
 <hr>
+<ul>
+    <li ng-repeat='service in services'>{{ service.name }}<span><strong>{{ service.price | number:0 }} </strong>{{ service.unit }}</span> </li>
+</ul>
