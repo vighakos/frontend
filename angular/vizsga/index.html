@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="vizsgaApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/bootstrap.min.js" defer></script>
+    <script src="js/angular.min.js" defer></script>
+    <script src="js/app.js" defer></script>
+
+    <title>Vizsgajelentkezés</title>
+</head>
+<body ng-controller="mainCtrl">
+    <div class="container">
+        <header>
+            <h1>{{title}}</h1>
+        </header>
+        <main>
+            <h3>Bejelentkezés</h3> <hr>
+            <form>
+                <label>Felhasználó</label>
+                <select class="form-select mb-3">
+                    <option ng-repeat="user in felhasznalok">{{user}} </option>
+                </select>
+                <label>Jelszó</label>
+                <input type="password" class="form-control mb-3" id="passwd">
+                <button type="button" class="btn btn-primary">Bejeli</button>
+
+            </form>
+        </main>
+        <footer>
+    
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="hu" ng-app="orarendApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body ng-controller="mainCtrl" ng-cloak>
+    <div ng-include="'modal.html'"></div>
+    <div class="container">
+        <header>{{ title }}</header>
+        <main>
+            <aside>
+                <div class="accordion accordion-flush" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                          Órarend szerkesztése...
+                        </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                            <div class="accordion-body row">
+
+                                <div class="form-floating col-lg-3 mb-3">
+                                    <select class="form-select" id="day" ng-model="newdata.day">
+                                      <option selected>Válassz...</option>
+                                      <option value="{{ day }}" ng-repeat="day in days">{{ day }}</option>
+                                    </select>
+                                    <label for="day">&nbsp;&nbsp;&nbsp;Tanítási nap:</label>
+                                </div>
+
+                                <div class="form-floating col-lg-3 mb-3">
+                                    <select class="form-select" id="hour" ng-model="newdata.hour">
+                                      <option selected>Válassz...</option>
+                                      <option value="{{ hour.nr }}" ng-repeat="hour in hours">{{ hour.nr }}. óra</option>
+                                    </select>
+                                    <label for="hour">&nbsp;&nbsp;&nbsp;Tanítási óra:</label>
+                                </div>
+
+                                <button class="btn btn-outline-secondary col-lg-1 mb-3" title="Új tantárgy hozzáadása..." data-bs-toggle="modal" data-bs-target="#newSubjectForm"><i class="bi bi-plus-lg"></i></button>
+
+                                <div class="form-floating col-lg-3 mb-3">
+                                    <select class="form-select" id="subject" ng-model="newdata.subject">
+                                      <option selected>Válassz...</option>
+                                      <option value="{{ subject.id }}" ng-repeat="subject in subjects">{{ subject.name }} ({{ subject.teacher }})</option>
+                                    </select>
+                                    <label for="subject">&nbsp;&nbsp;&nbsp;Tantárgy neve:</label>
+
+                                </div>
+                                <button class="btn btn-primary col-lg-2 mb-3" ng-click="addToTimetable()">Hozzáadás</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </aside>
+            <section>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="text-center f_cell">#</th>
+                            <th class="text-center d_cell" ng-repeat="day in days" ng-class="{akt: $index == dayOfWeek}">{{ day }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="hour in hours">
+                            <td class="text-center align-middle" ng-class="{akt: ((hour.start <= aktTime) && hour.end >= aktTime )}">{{ hour.nr }}.</td>
+                            <td ng-repeat="day in days" ng-class="{aktDay: $index == dayOfWeek || ((hour.start <= aktTime) && hour.end >= aktTime )}">
+                                <div ng-repeat="timetable in timetables" ng-if="timetable.day==day && timetable.hour==hour.nr" class="ttday">
+                                    <table class="subjectCell" style="background-color: {{ timetable.color }}">
+                                        <tr>
+                                            <td class="text-start align-bottom">{{ timetable.room }}</td>
+                                            <td class="text-center align-middle"><strong>{{ timetable.subjectName }}</strong></td>
+                                            <td class="text-end align-bottom">{{ timetable.teacher }}</td>
+                                        </tr>
+                                    </table>
+
+                                    <span>
+                                        <button type="button" class="btn-close" ng-click="deleteFromTimetable(timetable.id)"></button></td>
+                                    </span>
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+        <footer>{{ company }} - {{ author }}</footer>
+    </div>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

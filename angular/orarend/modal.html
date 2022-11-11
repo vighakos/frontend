@@ -1,0 +1,41 @@
+<!-- Modal -->
+<div class="modal fade" id="newSubjectForm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Új tantárgy hozzáadása</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="name" placeholder="A tantárgy neve" ng-model="subject.name">
+                    <label for="name">A tantárgy neve <em>*</em></label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="teacher" placeholder="A tanár neve" ng-model="subject.teacher">
+                    <label for="teacher">A tanár neve <em>*</em></label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="room" placeholder="A terem száma" ng-model="subject.room">
+                    <label for="room">A terem száma <em>*</em></label>
+                </div>
+
+                <div class="form-floating">
+                    <input type="color" class="form-control" id="color" placeholder="Színkód" ng-model="subject.color">
+                    <label for="color">Színkód</label>
+                </div>
+                <br>
+                <p class="text-muted text-center"> A <em>*</em> -al jelölt adatok megadása kötelező!</p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mégsem</button>
+                <button type="button" class="btn btn-primary" ng-click="saveSubject()">Hozzáadás</button>
+            </div>
+        </div>
+    </div>
+</div>
