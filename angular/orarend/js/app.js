@@ -27,7 +27,6 @@ app.controller('mainCtrl', function($scope) {
     if ($scope.subjects == null) {
         $scope.subjects = [];
     }
-
     $scope.timetables = angular.fromJson(localStorage.getItem('timetable'));
     if ($scope.timetables == null) {
         $scope.timetables = [];

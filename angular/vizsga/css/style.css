@@ -24,3 +24,12 @@ main {
     padding: 10px;
     background-color: rgb(91, 57, 145);
 }
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 80%;
+    padding: 10px;
+}

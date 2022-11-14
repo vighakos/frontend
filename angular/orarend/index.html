@@ -79,7 +79,7 @@
                             <td class="text-center align-middle" ng-class="{akt: ((hour.start <= aktTime) && hour.end >= aktTime )}">{{ hour.nr }}.</td>
                             <td ng-repeat="day in days" ng-class="{aktDay: $index == dayOfWeek || ((hour.start <= aktTime) && hour.end >= aktTime )}">
                                 <div ng-repeat="timetable in timetables" ng-if="timetable.day==day && timetable.hour==hour.nr" class="ttday">
-                                    <table class="subjectCell" style="background-color: {{ timetable.color }}">
+                                    <table class="subjectCell">
                                         <tr>
                                             <td class="text-start align-bottom">{{ timetable.room }}</td>
                                             <td class="text-center align-middle"><strong>{{ timetable.subjectName }}</strong></td>
