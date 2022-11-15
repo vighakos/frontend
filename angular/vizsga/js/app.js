@@ -30,7 +30,7 @@ var app = new angular.module('vizsgaApp', [])
 
     $scope.felvetel = function() {
         if ($scope.ujvizsga.subject == null || $scope.ujvizsga.date == null) {
-            alert('Töltcs ki minden mezőtt 🙄')
+            alert('Tölts ki minden mezőt 🙄')
         } else {
             $scope.vizsgak.push({
                 id: $scope.vizsgak.length + 1,
