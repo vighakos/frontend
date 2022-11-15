@@ -7,10 +7,12 @@
     <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css">
 
     <script src="js/bootstrap.min.js" defer></script>
     <script src="js/angular.min.js" defer></script>
+    <script src="js/moment.js" defer></script>
     <script src="js/app.js" defer></script>
 
     <title>Vizsgajelentkezés</title>
@@ -22,6 +24,30 @@
         </header>
         <main>
             <h3>Diák felület</h3> <hr>
+            <a href="index.html"><button type="button" class="btn btn-primary">Vissza</button></a>
+
+            <section>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <td>#</td>
+                            <td>Tantárgy</td>
+                            <td>Dátum</td>
+                            <td>Jelentkezők</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="vizsga in vizsgak">
+                            <td>{{$index + 1}}</td>
+                            <td>{{vizsga.subject}}</td>
+                            <td>{{vizsga.date}}</td>
+                            <td>{{vizsga.aktletszam}}/{{vizsga.maxletszam}}</td>
+                            <td><i class="bi bi-plus-square" ng-click="jelentkezes(vizsga.id)"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
         </main>
         <footer>
             {{ize}} - {{cucc}}

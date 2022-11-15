@@ -7,10 +7,12 @@
     <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css">
 
     <script src="js/bootstrap.min.js" defer></script>
     <script src="js/angular.min.js" defer></script>
+    <script src="js/moment.js" defer></script>
     <script src="js/app.js" defer></script>
 
     <title>Vizsgajelentkezés</title>
@@ -23,14 +25,42 @@
         <main>
             <h3>Tanár felület</h3> <hr>
             <form>
-                <p>Tantárgy felvétele</p>
-                <select id="XD">
+                <label>Tantárgy:</label>
+                <select class="form-select mb-3" id="XD" ng-model="ujvizsga.subject">
                     <option ng-repeat="subject in subjects">{{subject}} </option>
                 </select>
-                <p>aadata date megaddása</p>
-                <input type="date" name="datettete" id="tate" min="new Date()">
-                <input type="button" value="Megdaás" class="btn btn-success" ng-click="kattoloka()">
+                
+                <label>Dátum:</label>
+                <input type="date" class="form-control mb-3" ng-model="ujvizsga.date">
+
+                <label>Létszám:</label>
+                <input type="number" class="form-control mb-3" ng-model="ujvizsga.maxletszam">
+
+                <input type="button" value="Megadás" class="btn btn-success" ng-click="felvetel()">
+                <a href="index.html"><button type="button" class="btn btn-primary">Vissza</button></a>
             </form>
+
+            <section>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <td>#</td>
+                            <td>Tantárgy</td>
+                            <td>Dátum</td>
+                            <td>Létszám</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="vizsga in vizsgak">
+                            <td>{{$index + 1}}</td>
+                            <td>{{vizsga.subject}}</td>
+                            <td>{{vizsga.date}}</td>
+                            <td>{{vizsga.aktletszam}}/{{vizsga.maxletszam}}</td>
+                            <td><i class="bi bi-trash-fill" ng-click="torles(vizsga.id)"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
         </main>
         <footer>
             {{ize}} - {{cucc}}
