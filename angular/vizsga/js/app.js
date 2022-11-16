@@ -2,8 +2,8 @@ var app = new angular.module('vizsgaApp', [])
 
 .controller('mainCtrl', function($scope) {
     $scope.title = "Vizsgajelentkezés"
-    $scope.ize = "You have great ideas. When you need to protect them, call us, © 1996-2022 Daniel A. Tysver. All Rights Reserved. Forsgren Fisher McCalmont DeMarea Tysver LLP, Minneapolis, MN No claim to copyright ownership is made to underlying materials originating with the U.S. Government, including MPEP and TMEP sections and indexes, statutes, regulations, and court decisions. IMPORTANT: Please review the legal disclaimer and feedback page"
-    $scope.cucc = "sxdcblé"
+    $scope.ize = "Nem túl feltűnő szöveg"
+    $scope.cucc = "További szöveg"
     $scope.users = [
         {
             id: 0,
@@ -29,8 +29,8 @@ var app = new angular.module('vizsgaApp', [])
     }
 
     $scope.felvetel = function() {
-        if ($scope.ujvizsga.subject == null || $scope.ujvizsga.date == null) {
-            alert('Tölts ki minden mezőt 🙄')
+        if ($scope.ujvizsga.subject == null || $scope.ujvizsga.date == null || $scope.ujvizsga.maxletszam == null) {
+            alert('Tölts ki minden mezőt')
         } else {
             $scope.vizsgak.push({
                 id: $scope.vizsgak.length + 1,
