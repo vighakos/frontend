@@ -1,0 +1,37 @@
+<div class="modal fade" id="modalWindow" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ modal.Title }}</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="name" placeholder="Pizza neve:" ng-model="pizza.name" ng-disabled="modal.mode==2">
+                    <label for="name">Pizza neve: <em ng-if="modal.mode != 2">*</em></label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="kcal" min="0" placeholder="Kalória (kcal):" ng-model="pizza.kcal" ng-disabled="modal.mode==2">
+                    <label for="kcal">Kalória (kcal):</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="price" min="0" placeholder="Ár ({{ penznem }}):" ng-model="pizza.price" ng-disabled="modal.mode==2">
+                    <label for="price">Ár ({{ penznem }}): <em ng-if="modal.mode != 2">*</em></label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" placeholder="Feltétek:" id="description" ng-model="pizza.description" ng-disabled="modal.mode==2"></textarea>
+                    <label for="description">Feltétek:</label>
+                </div>
+                <p class="text-muted text-center mb-3" ng-if="modal.mode != 2">A <em>*</em>-al jelölt adatok megadása kötelező!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mégsem</button>
+                <button type="button" class="btn btn-{{ modal.BtnColor }}" ng-click="submit()">{{ modal.Btn }}</button>
+            </div>
+        </div>
+    </div>
+</div>
