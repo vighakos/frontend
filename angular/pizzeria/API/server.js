@@ -193,6 +193,23 @@ app.delete('/:table/:id', tokencheck(), (req, res) => {
     });
 });
 
+// DELETE ALL RECORDS WITH VALUE
+app.delete('/:table/:field/:value', tokencheck(), (req, res) => {
+    var table = req.params.table;
+    var field = req.params.field;
+    var value = req.params.value;
+
+    pool.query(`DELETE FROM ${table} WHERE ${field}=${value}`, (err, results) => {
+        if (err) {
+            log(req.socket.remoteAddress, err);
+            res.status(500).send(err);
+        } else {
+            log(req.socket.remoteAddress, `${results.affectedRows} records deleted form ${table} table.`);
+            res.status(200).send(results);
+        }
+    });
+});
+
 app.listen(port, () => {
     log('SERVER', `Listening started on port ${port}.`);
 })

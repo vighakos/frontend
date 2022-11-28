@@ -10,26 +10,27 @@ app.controller('kosarCtrl', function($scope, $rootScope, DB) {
     });
 
     $scope.delete = function(id) {
-        DB.delete('carts', id).then(function(res) {
-            if (res.data.affectedRows != 0) {
-                let idx = $scope.tetelek.findIndex(item => item.ID === id);
-                $scope.tetelek.splice(idx, 1);
-            } else {
-                alert('Váratlan hiba történt az adatbázis művelet során!');
-            }
-        })
+        if (confirm('Biztos törölni akarod?')) {
+            DB.delete('carts', id).then(function(res) {
+                if (res.data.affectedRows != 0) {
+                    let idx = $scope.tetelek.findIndex(item => item.ID === id);
+                    $scope.tetelek.splice(idx, 1);
+                } else {
+                    alert('Váratlan hiba történt az adatbázis művelet során!');
+                }
+            })
+        }
     }
 
     $scope.deleteall = function() {
-        $scope.tetelek.forEach(item => {
-            DB.delete('carts', item.ID).then(function(res) {
-                $scope.tetelek.splice(item.ID, 1);
+        if ($scope.tetelek.length != 0 && confirm('Biztos törölni akarod az összes kosárban lévő terméket? 💀')) {
+            DB.deleteByValue('carts', 'userID', $scope.tetelek[0].userID).then(function(res) {
+                $scope.tetelek = []
             })
-        })
+        }
     }
 
-    $scope.apply=function(id){
-
+    $scope.apply = function(id){
         let idx = $scope.tetelek.findIndex(item => item.ID === id);
 
         let data = {

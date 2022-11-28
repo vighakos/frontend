@@ -29,7 +29,16 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#!/">Pizzalista</a>
                             </li>
-
+                            
+                            <!-- user functions -->
+                            <li class="nav-item" ng-if="loggedUser">
+                                <a class="nav-link" href="#!/kosar">Kosaram <span class="badge rounded-pill bg-danger" ng-if="itemsInCart != 0">{{ itemsInCart }}</span></a>
+                            </li>
+                            
+                            <li class="nav-item" ng-if="loggedUser">
+                                <a class="nav-link" href="#!/rendeleseim">Korábbi rendeléseim</a>
+                            </li>
+                            
                             <!-- admin functions -->
                             <li class="nav-item" ng-if="loggedUser && (loggedUser.rights==='admin')">
                                 <a class="nav-link" href="#!/pizzak">Pizzák kezelése</a>
@@ -42,16 +51,6 @@
                             <li class="nav-item" ng-if="loggedUser && (loggedUser.rights==='admin')">
                                 <a class="nav-link" href="#!/statisztika">Statisztika</a>
                             </li>
-
-                            <!-- user functions -->
-                            <li class="nav-item" ng-if="loggedUser">
-                                <a class="nav-link" href="#!/kosar">Kosaram <span class="badge rounded-pill bg-danger" ng-if="itemsInCart != 0">{{ itemsInCart }}</span></a>
-                            </li>
-
-                            <li class="nav-item" ng-if="loggedUser">
-                                <a class="nav-link" href="#!/rendeleseim">Korábbi rendeléseim</a>
-                            </li>
-
                         </ul>
                         <form class="d-flex" role="search" ng-controller="userCtrl" ng-if="!loggedUser">
 
