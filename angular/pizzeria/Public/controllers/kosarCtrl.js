@@ -1,5 +1,6 @@
 app.controller('kosarCtrl', function($scope, $rootScope, DB) {
     $scope.tetelek = [];
+    $scope.megvaltoztatando={};
 
     DB.select('cartDetails', 'userID', $rootScope.loggedUser.ID).then(function(res) {
         $scope.tetelek = res.data;
@@ -30,16 +31,14 @@ app.controller('kosarCtrl', function($scope, $rootScope, DB) {
         }
     }
 
-    $scope.apply = function(id){
+    $scope.numberupdate=function(id){
         let idx = $scope.tetelek.findIndex(item => item.ID === id);
-
         let data = {
             ID:id,
-            amount: $scope.semmi.amount,
+            amount: $scope.megvaltoztatando.amount,
             userID:$scope.tetelek[idx].userID,
-            pizzaID:$scope.tetelek[idx].pizzaID
+            pizzaID:$scope.tetelek[idx].pizzaID,
         }
-
         DB.update('carts', id, data).then(function(res) {
             alert('A kosárban lévő mennyiség frissítve!');
         });

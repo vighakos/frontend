@@ -18,8 +18,8 @@
             <td>{{ tetel.name }}</td>
             <td class="text-end">{{ tetel.price | number: decimals }} {{ penznem }}</td>
             <td class="text-end">
-                <input type="number" value="{{tetel.amount}}" class="mennyiseg"> db
-                <button class="btn btn-success" ng-click="apply(tetel.id)"><i class="bi bi-arrow-clockwise"></i></button>
+                <input type="number" value="{{tetel.amount}}" class="mennyiseg" ng-model="megvaltoztatando.amount"> db
+                <button class="btn btn-success" ng-click="numberupdate(tetel.ID)"><i class="bi bi-arrow-clockwise"></i></button>
             </td>
             <td class="text-end">{{ tetel.summary | number: decimals }} {{ penznem }}</td>
             <td class="text-end"><i class="bi bi-trash-fill" ng-click="delete(tetel.ID)"></i></td>
