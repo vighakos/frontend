@@ -33,5 +33,6 @@
             <td class="text-end">Összesen: <strong>{{ summary | number: decimal}}</strong> {{ penznem }}</td>
         </tr>
     </tfoot>
-    <button class="btn btn-danger mb-3" ng-click="deleteall()">Összes törlése</button>
+    <button class="btn btn-danger mb-3" ng-click="deleteall()">Összes törlése</button> <br>
+    <button class="btn btn-primary mb-3" ng-click="ordering()" ng-disabled="summary == 0">Megrendelés</button>
 </table>

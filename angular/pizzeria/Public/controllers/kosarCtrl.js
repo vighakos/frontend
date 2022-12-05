@@ -12,7 +12,7 @@ app.controller('kosarCtrl', function($scope, $rootScope, DB) {
 
     $scope.delete = function(id) {
         if (confirm('Biztos törölni akarod?')) {
-            DB.delete('carts', id).then(function(res) {
+            DB.delete('carts', 'ID', id).then(function(res) {
                 if (res.data.affectedRows != 0) {
                     let idx = $scope.tetelek.findIndex(item => item.ID === id);
                     $scope.tetelek.splice(idx, 1);
@@ -25,7 +25,7 @@ app.controller('kosarCtrl', function($scope, $rootScope, DB) {
 
     $scope.deleteall = function() {
         if ($scope.tetelek.length != 0 && confirm('Biztos törölni akarod az összes kosárban lévő terméket? 💀')) {
-            DB.deleteByValue('carts', 'userID', $scope.tetelek[0].userID).then(function(res) {
+            DB.delete('carts', 'userID', $scope.tetelek[0].userID).then(function(res) {
                 $scope.tetelek = []
             })
         }
@@ -41,6 +41,41 @@ app.controller('kosarCtrl', function($scope, $rootScope, DB) {
         }
         DB.update('carts', id, data).then(function(res) {
             alert('A kosárban lévő mennyiség frissítve!');
+        });
+    }
+
+    $scope.ordering = function() {
+
+        let data = {
+            userID: $rootScope.loggedUser.ID,
+            userName: $rootScope.loggedUser.name,
+            userAddress: $rootScope.loggedUser.address,
+            userPhone: $rootScope.loggedUser.phone,
+            summary: $scope.summary
+        }
+
+        DB.insert('orders', data).then(function(res) {
+            if (res.data.affectedRows != 0) {
+                let orderID = res.data.insertId;
+
+                $scope.tetelek.forEach(tetel => {
+                    data = {
+                        orderID: orderID,
+                        pizzaID: tetel.pizzaID,
+                        pizzaName: tetel.name,
+                        amount: tetel.amount,
+                        price: tetel.price
+                    }
+                    DB.insert('orderItems', data);
+                });
+
+                DB.delete('carts', 'userID', $rootScope.loggedUser.ID).then(function() {
+                    alert("A megrendelést rögzítettük!");
+                    $scope.tetelek = [];
+                    $scope.summary = 0;
+                    $rootScope.itemsInCart = 0;
+                });
+            }
         });
     }
 });

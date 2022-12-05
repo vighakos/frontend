@@ -129,7 +129,7 @@ app.controller('pizzaCtrl', function($scope, DB, $rootScope) {
             case 2:
                 // DELETE
                 {
-                    DB.delete('pizzas', $scope.modal.pizzaID).then(function(res) {
+                    DB.delete('pizzas', 'ID', $scope.modal.pizzaID).then(function(res) {
                         if (res.data.affectedRows != 0) {
                             alert('A pizza törölve!');
                             let idx = $scope.pizzak.findIndex(item => item.ID === $scope.pizza.ID);
