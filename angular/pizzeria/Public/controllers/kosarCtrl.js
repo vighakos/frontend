@@ -45,12 +45,8 @@ app.controller('kosarCtrl', function($scope, $rootScope, DB) {
     }
 
     $scope.ordering = function() {
-
         let data = {
             userID: $rootScope.loggedUser.ID,
-            userName: $rootScope.loggedUser.name,
-            userAddress: $rootScope.loggedUser.address,
-            userPhone: $rootScope.loggedUser.phone,
             summary: $scope.summary
         }
 
@@ -62,7 +58,6 @@ app.controller('kosarCtrl', function($scope, $rootScope, DB) {
                     data = {
                         orderID: orderID,
                         pizzaID: tetel.pizzaID,
-                        pizzaName: tetel.name,
                         amount: tetel.amount,
                         price: tetel.price
                     }
