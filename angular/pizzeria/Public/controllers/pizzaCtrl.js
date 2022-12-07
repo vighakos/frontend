@@ -177,4 +177,4 @@ app.controller('pizzaCtrl', function($scope, DB, $rootScope) {
             }
         });
     }
-});
+})

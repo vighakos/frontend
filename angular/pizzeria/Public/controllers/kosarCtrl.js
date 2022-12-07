@@ -31,7 +31,7 @@ app.controller('kosarCtrl', function($scope, $rootScope, DB) {
         }
     }
 
-    $scope.numberupdate=function(id){
+    $scope.numberupdate = function(id){
         let idx = $scope.tetelek.findIndex(item => item.ID === id);
         let data = {
             ID:id,

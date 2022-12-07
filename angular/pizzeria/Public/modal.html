@@ -26,6 +26,12 @@
                     <textarea class="form-control" placeholder="Feltétek:" id="description" ng-model="pizza.description" ng-disabled="modal.mode==2"></textarea>
                     <label for="description">Feltétek:</label>
                 </div>
+
+                <div class="form-floating mb-3">
+                    <input type="file" class="form-control" id="pic" placeholder="Kép:" file-model="pizza.file" ng-disabled="modal.mode==2" accept="image/*">
+                    <label for="name">Kép:</label>
+                </div>
+                
                 <p class="text-muted text-center mb-3" ng-if="modal.mode != 2">A <em>*</em>-al jelölt adatok megadása kötelező!</p>
             </div>
             <div class="modal-footer">

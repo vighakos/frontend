@@ -3,23 +3,30 @@
 <table class="table table-striped table-hover">
     <thead>
         <tr class="table-dark">
-            <th>Nr.</th>
+            <th>ID</th>
             <th>Dátum</th>
             <th>Összeg</th>
             <th>Komment</th>
+            <th>Státusz</th>
+            <th class="text-end" ng-if="loggedUser.rights==='admin'">Műveletek</th>
         </tr>
     </thead>
     <tbody>
         <tr ng-repeat="tetel in tetelek">
-            <td>{{tetel.ID}}</td>
+            <td>{{$index + 1}}</td>
             <td>{{tetel.orderDate}}</td>
             <td>{{tetel.summary}} {{penznem}}</td>
             <td>{{tetel.comment}}</td>
+            <td>{{tetel.status}}</td>
+            <td class="text-end" ng-if="loggedUser.rights==='admin'">
+                <a title="Elfogad" ng-click="accept(tetel.ID)"><i class="bi bi-check-square-fill"></i></a>
+                <a title="Elutasít" ng-click="cancel(tetel.ID)"><i class="bi bi-x-square-fill"></i></a>
+            </td>
         </tr>
     </tbody>
     <tfoot>
         <tr>
-            <td colspan="5" class="text-end">Összesen: <strong>{{ tetelek.length }}</strong> tétel</td>
+            <td colspan="6" class="text-end">Összesen: <strong>{{ tetelek.length }}</strong> tétel</td>
         </tr>
     </tfoot>
 </table>
